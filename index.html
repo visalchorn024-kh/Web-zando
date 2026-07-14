@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zando</title>
+
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 2. Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- 3. AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- 4. link CSS-->
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <section>
+        <div class="header-container-full">
+            <div class="header-container">
+                <div class="menu">
+                    <ul>
+                        <li><a href="product.html">MEN</a></li>
+                        <li><a href="">WOMEN</a></li>
+                        <li><a href="">BOYS</a></li>
+                        <li><a href="">GIRLS</a></li>
+                    </ul>
+                </div>
+                <div class="logo">
+                    <img src="img/ZANDO-NEW-LOGO-2025.png" alt="">
+                </div>
+                <div class="rigister">
+                    <ul>
+                        <li><a href="">REGISTER</a></li>
+                        <li><a href="">LOGIN</a></li>
+                        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                        <li><a href="#"><i class="fa-regular fa-bell"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-face-grin-hearts"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOMEPAGE -->
+    <section class="homepage">
+        <div class="button-homepage">
+            <button>MEN</button>
+            <button>WOMEN</button>
+        </div>
+    </section>
+
+    <!-- BRAND CONTAINER -->
+    <section class="brand-container">
+        <div class="box-brand" data-aos="fade-up" data-aos-delay="300">
+            <img src="img/Ten11_Web (8).png" alt="">
+        </div>
+        <div class="box-brand" data-aos="fade-up" data-aos-delay="400">
+            <img src="img/Routine_Web (8).png" alt="">
+        </div>
+        <div class="box-brand" data-aos="fade-up" data-aos-delay="500">
+            <img src="img/TagSpace_Web (8).png" alt="">
+        </div>
+        <div class="box-brand" data-aos="fade-up" data-aos-delay="600">
+            <img src="img/Zando_Web (8).png" alt="">
+        </div>
+        <div class="box-brand" data-aos="fade-up" data-aos-delay="700">
+            <img src="img/Pomelo_Web (8).png" alt="">
+        </div>
+        <div class="box-brand" data-aos="fade-up" data-aos-delay="800">
+            <img src="img/361_Web (8).png" alt="">
+        </div>
+        <div class="box-brand" data-aos="fade-up" data-aos-delay="900">
+            <img src="img/Gatoni_Web (8).png" alt="">
+        </div>
+    </section>
+
+    <!-- ===== CAROUSEL PRODUCT SECTION ===== -->
+    <section class="all-product product-carousel-section">
+        <h2>🔥 Product Traning 🔥</h2>
+
+        <div id="productCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active" data-bs-interval="4000">
+                    <div class="row g-4">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic1.jpg" alt="Product 1">
+                                <div class="product-info">
+                                    <h5>Graphic T-shirt</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic2.jpg" alt="Product 2">
+                                <div class="product-info">
+                                    <h5>Off-Shoulder Top</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic3.jpg" alt="Product 3">
+                                <div class="product-info">
+                                    <h5>Casual Dress</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic5.jpg" alt="Product 4">
+                                <div class="product-info">
+                                    <h5>Sport Jacket</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item" data-bs-interval="4000">
+                    <div class="row g-4">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic6.jpg" alt="Product 5">
+                                <div class="product-info">
+                                    <h5>Denim Jeans</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic7.jpg" alt="Product 6">
+                                <div class="product-info">
+                                    <h5>Summer Shorts</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic8.jpg" alt="Product 7">
+                                <div class="product-info">
+                                    <h5>Hoodie Sweater</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic9.jpg" alt="Product 8">
+                                <div class="product-info">
+                                    <h5>Winter Coat</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item" data-bs-interval="4000">
+                    <div class="row g-4">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic10.jpg" alt="Product 9">
+                                <div class="product-info">
+                                    <h5>Polo Shirt</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic11.jpg" alt="Product 10">
+                                <div class="product-info">
+                                    <h5>Blazer Jacket</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/pic12.jpg" alt="Product 11">
+                                <div class="product-info">
+                                    <h5>Jogger Pants</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="carousel-product-card">
+                                <img src="img/ZANDO120820256287-cr-450x672.jpg" alt="Product 12">
+                                <div class="product-info">
+                                    <h5>Oxford Shirt</h5>
+                                    <p><span class="old-price">$14.59</span> <span class="price">$11.67</span></p>
+                                    <button class="btn btn-sm btn-primary add-to-cart">បន្ថែមទៅកន្ត្រក</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="featured-prd">
+        <div class="box-img"><img src="img/1.jpg" alt=""></div>
+        <div class="box-img"><img src="img/2.jpg" alt=""></div>
+        <div class="box-img"><img src="img/3.jpg" alt=""></div>
+        <div class="box-img"><img src="img/5.jpg" alt=""></div>
+        <div class="box-img"><img src="img/6.jpg" alt=""></div>
+    </section>
+
+    <!-- ALL PRODUCT 1 -->
+    <section class="all-product">
+        <h1>🤑 Mid Year Sale 🤑</h1>
+        <div class="container-product">
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="100">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/ZANDO120820256287-cr-450x672.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="200">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/pic3.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="300">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/pic1.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="400">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/pic2.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL PRODUCT 2 -->
+    <section class="all-product">
+        <h1>⚡️ Oxfit Atelier Collection ⛓️</h1>
+        <div class="container-product">
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="100">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/pic5.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="200">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/pic6.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="300">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/pic7.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="400">
+                <div class="discound">-10%</div>
+                <div class="image">
+                    <img src="img/pic8.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL PRODUCT 3 -->
+    <section class="all-product">
+        <h1>⚡All Under $9.99 🛒</h1>
+        <div class="container-product">
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="100">
+                <div class="discound">-15%</div>
+                <div class="image">
+                    <img src="img/pic9.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="200">
+                <div class="discound">-15%</div>
+                <div class="image">
+                    <img src="img/pic10.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="300">
+                <div class="discound">-15%</div>
+                <div class="image">
+                    <img src="img/pic11.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item bounce" data-aos="fade-up" data-aos-delay="400">
+                <div class="discound">-15%</div>
+                <div class="image">
+                    <a href="productDetail.html">
+                        <img src="img/pic12.jpg" alt="">
+                    </a>
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- ===== FOOTER SECTION ===== -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row g-4">
+            
+            <!-- Column 1: ZANDO APP & Loyalty -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-mobile-alt"></i> ZANDO APP</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-star"></i> Membership & Benefits</a></li>
+                </ul>
+                
+                <h4 class="mt-3"><i class="fas fa-crown"></i> LOYALTY</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-gem"></i> Membership & Benefits</a></li>
+                </ul>
+                
+                <h4 class="mt-3"><i class="fas fa-share-alt"></i> FOLLOW US</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Column 2: Customer Services -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-headset"></i> CUSTOMER SERVICES</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-exchange-alt"></i> Online exchange policy</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> FAQs & guides</a></li>
+                    <li><a href="#"><i class="fas fa-store"></i> Find a store</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Contact Us -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-envelope"></i> CONTACT US</h4>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> customer.care@zandokh.com</p>
+                    <p><i class="fas fa-phone"></i> (+855) 085 330 330</p>
+                    <p><i class="fab fa-telegram-plane"></i> Telegram</p>
+                </div>
+            </div>
+            
+            <!-- Column 4: We Accept + QR Code -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-credit-card"></i> WE ACCEPT</h4>
+                <div class="payment-icons">
+                    <span class="payment-item"><i class="fab fa-cc-visa"></i> Visa</span>
+                    <span class="payment-item"><i class="fab fa-cc-mastercard"></i> MasterCard</span>
+                    <span class="payment-item"><i class="fab fa-cc-discover"></i> Discover</span>
+                    <span class="payment-item"><i class="fas fa-university"></i> UnionPay</span>
+                    <span class="payment-item"><i class="fas fa-credit-card"></i> Maestro</span>
+                    <span class="payment-item"><i class="fas fa-university"></i> Bank Transfer</span>
+                    <span class="payment-item"><i class="fas fa-money-bill-wave"></i> Cash on Delivery</span>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© 2015 - 2026 Zando. All rights reserved. | Developed by <a href="#">CHORN VISAL</a></p>
+        </div>
+    </div>
+</footer>
+
+    <!-- ========================================== -->
+
+    <!-- 1. Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 2. AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- 3. JavaScript -->
+    <script>
+        // កំណត់ AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+            easing: 'ease-out-cubic'
+        });
+
+        // ===== មុខងារ JavaScript ទាំងអស់ =====
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // ១. មុខងារស្វែងរក
+            const searchIcon = document.querySelector('.fa-magnifying-glass');
+            if (searchIcon) {
+                searchIcon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const searchBox = document.createElement('input');
+                    searchBox.type = 'text';
+                    searchBox.placeholder = 'ស្វែងរកនៅ Zando...';
+                    searchBox.className = 'search-input';
+                    searchBox.style.cssText = `
+                        position: fixed;
+                        top: 80px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 400px;
+                        padding: 15px 20px;
+                        border: 2px solid #016dd9;
+                        border-radius: 30px;
+                        font-size: 16px;
+                        z-index: 1000;
+                        background: white;
+                        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+                        animation: slideDown 0.3s ease;
+                    `;
+                    document.body.appendChild(searchBox);
+                    searchBox.focus();
+
+                    searchBox.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape') this.remove();
+                    });
+                    document.addEventListener('click', function closeSearch(e) {
+                        if (e.target !== searchBox && e.target !== searchIcon) {
+                            searchBox.remove();
+                            document.removeEventListener('click', closeSearch);
+                        }
+                    });
+                });
+            }
+
+            // ២. កន្ត្រកទិញទំនិញ
+            const cartIcon = document.querySelector('.fa-bag-shopping');
+            if (cartIcon) {
+                cartIcon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    this.style.animation = 'cartBounce 0.5s ease';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 500);
+                    alert('🛒 បានបន្ថែមទៅកន្ត្រក!');
+                });
+            }
+
+            // ៣. ប៊ូតុងបន្ថែមទៅកន្ត្រកក្នុង Carousel
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const productName = this.closest('.product-info').querySelector('h5').textContent;
+                    alert(`🛒 បានបន្ថែម "${productName}" ទៅកន្ត្រក!`);
+
+                    // efect
+                    this.textContent = '✅ បានបន្ថែម';
+                    this.style.background = '#28a745';
+                    this.style.borderColor = '#28a745';
+                    setTimeout(() => {
+                        this.textContent = 'បន្ថែមទៅកន្ត្រក';
+                        this.style.background = '';
+                        this.style.borderColor = '';
+                    }, 2000);
+                });
+            });
+
+            
+            document.querySelectorAll('.card-item').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    if (e.target.closest('.description') || e.target.closest('.discound')) {
+                        return;
+                    }
+                    // add efect
+                    this.style.animation = 'bounceIn 0.5s ease';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 500);
+
+                    const productName = this.querySelector('.description p:last-child')?.textContent || 'ផលិតផល';
+                    alert(`✨ កំពុងមើល: ${productName}`);
+                });
+            });
+
+            //  Carousel
+            document.querySelectorAll('.carousel-product-card').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    if (e.target.closest('.add-to-cart')) return;
+                    const productName = this.querySelector('.product-info h5').textContent;
+                    alert(`✨ កំពុងមើល: ${productName}`);
+                });
+            });
+
+            //  Header 
+            const header = document.querySelector('.header-container-full');
+            let lastScroll = 0;
+            window.addEventListener('scroll', function () {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    header.style.transform = 'translateY(-100%)';
+                    header.style.transition = '0.3s';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                    header.style.transition = '0.3s';
+                }
+                lastScroll = currentScroll;
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 's' || e.key === 'S') {
+                    if (!e.ctrlKey && !e.metaKey) {
+                        const searchIcon = document.querySelector('.fa-magnifying-glass');
+                        if (searchIcon) searchIcon.click();
+                    }
+                }
+                if (e.key === 'c' || e.key === 'C') {
+                    const cartIcon = document.querySelector('.fa-bag-shopping');
+                    if (cartIcon) cartIcon.click();
+                }
+            });
+
+            console.log('🛍️ Zando website loaded successfully with Carousel!');
+            console.log('🎯 Press "S" for search, "C" for cart');
+        });
+    </script>
+</body>
+
+</html>

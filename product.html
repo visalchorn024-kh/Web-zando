@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zando - Product Detail</title>
+    
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- 2. Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <!-- 3. AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ===== Product Detail Styles ===== */
+        body {
+            background: #f8f5f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Header */
+        .header-container-full {
+            background: #0b1a1f;
+            padding: 0.6rem 0;
+            border-bottom: 2px solid #e2b84c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+        }
+        .menu ul, .rigister ul {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        .menu ul li a, .rigister ul li a {
+            color: #f2ede7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: 0.2s;
+        }
+        .menu ul li a:hover, .rigister ul li a:hover {
+            color: #e2b84c;
+        }
+        .logo img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+        .rigister ul li a i {
+            font-size: 1.15rem;
+            color: #f2ede7;
+        }
+        .rigister ul li a i:hover {
+            color: #e2b84c;
+        }
+        
+        /* Product Detail Main */
+        .product-detail-section {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 2rem;
+        }
+        
+        /* Image Gallery */
+        .product-gallery {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .thumbnail-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100px;
+        }
+        
+        .thumbnail-item {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .thumbnail-item:hover {
+            transform: scale(1.05);
+            border-color: #e2b84c;
+        }
+        
+        .thumbnail-item.active {
+            border-color: #e2b84c;
+            box-shadow: 0 0 20px rgba(226, 184, 76, 0.3);
+        }
+        
+        .main-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            height: 550px;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .main-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Product Info */
+        .product-info-detail {
+            padding-left: 30px;
+        }
+        
+        .product-info-detail .brand {
+            color: #e2b84c;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .product-info-detail h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a2a30;
+            margin: 10px 0;
+        }
+        
+        .product-info-detail .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .product-info-detail .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            font-weight: 400;
+        }
+        
+        .product-info-detail .colors-available {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+        
+        /* Color Options */
+        .color-options {
+            display: flex;
+            gap: 12px;
+            margin: 15px 0 20px 0;
+        }
+        
+        .color-option {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.active {
+            border-color: #e2b84c;
+            box-shadow: 0 0 20px rgba(226, 184, 76, 0.3);
+        }
+        
+        .color-option .color-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.6rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            white-space: nowrap;
+            transition: 0.3s;
+            opacity: 0;
+        }
+        
+        .color-option:hover .color-label {
+            bottom: -25px;
+            opacity: 1;
+        }
+        
+        /* Size Options */
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0 20px 0;
+        }
+        
+        .size-option {
+            width: 50px;
+            height: 45px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .size-option:hover {
+            border-color: #e2b84c;
+            transform: scale(1.05);
+        }
+        
+        .size-option.active {
+            border-color: #e2b84c;
+            background: #e2b84c;
+            color: white;
+        }
+        
+        /* Quantity */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .quantity-selector label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .quantity-control button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: #f5f0eb;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #333;
+        }
+        
+        .quantity-control button:hover {
+            background: #e2b84c;
+            color: white;
+        }
+        
+        .quantity-control input {
+            width: 60px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            background: white;
+        }
+        
+        .quantity-control input:focus {
+            outline: none;
+        }
+        
+        /* Add to Bag Button */
+        .add-to-bag-btn {
+            background: #0b1a1f;
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .add-to-bag-btn:hover {
+            background: #e2b84c;
+            color: #0b1a1f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(226, 184, 76, 0.3);
+        }
+        
+        .add-to-bag-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Product Info Bottom */
+        .product-meta {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .product-meta .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .product-meta .meta-item i {
+            color: #e2b84c;
+            width: 25px;
+            font-size: 1.1rem;
+        }
+        
+        /* ===== FOOTER WITH QR CODE ===== */
+.footer-section {
+    background: #0b1a1f;
+    color: #f2ede7;
+    padding: 50px 0 20px 0;
+    margin-top: 50px;
+    border-top: 3px solid #e2b84c;
+}
+
+.footer-section h4 {
+    color: #e2b84c;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section h4 i {
+    margin-right: 8px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.footer-section ul li a {
+    color: #d0d8e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #e2b84c;
+    padding-left: 5px;
+}
+
+.footer-section ul li i {
+    margin-right: 8px;
+    color: #e2b84c;
+    width: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: #f2ede7;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background: #e2b84c;
+    color: #0b1a1f;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(226, 184, 76, 0.3);
+}
+
+/* Payment Icons */
+.payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.payment-icons .payment-item {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    color: #d0d8e1;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.payment-icons .payment-item:hover {
+    background: #e2b84c;
+    color: #0b1a1f;
+    transform: scale(1.05);
+}
+
+.payment-icons .payment-item i {
+    margin-right: 5px;
+}
+
+/* Contact Info */
+.contact-info p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #d0d8e1;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: #e2b84c;
+    width: 20px;
+}
+
+/* ===== QR CODE SECTION ===== */
+.qr-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid rgba(226, 184, 76, 0.2);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.qr-section:hover {
+    border-color: #e2b84c;
+    box-shadow: 0 0 30px rgba(226, 184, 76, 0.1);
+    transform: translateY(-3px);
+}
+
+.qr-section .qr-title {
+    font-size: 0.75rem;
+    color: #8a9aa8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.qr-section .qr-title i {
+    color: #e2b84c;
+    margin-right: 8px;
+}
+
+.qr-code-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.qr-code-box {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.qr-code-box:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 30px rgba(226, 184, 76, 0.3);
+}
+
+.qr-code-box .qr-icon {
+    font-size: 2.2rem;
+    color: #0b1a1f;
+}
+
+.qr-code-box .qr-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(226, 184, 76, 0.9);
+    color: #0b1a1f;
+    font-size: 0.5rem;
+    font-weight: 700;
+    padding: 2px 0;
+    border-radius: 0 0 10px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.qr-scan-section {
+    margin-top: 8px;
+}
+
+.qr-scan-section .scan-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e2b84c;
+    letter-spacing: 1px;
+}
+
+.qr-scan-section .scan-text span {
+    display: inline-block;
+    animation: scanPulse 2s ease-in-out infinite;
+}
+
+.qr-scan-section .scan-text .dot {
+    color: #f2ede7;
+    animation: none;
+}
+
+@keyframes scanPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.qr-scan-section .scan-sub {
+    font-size: 0.65rem;
+    color: #8a9aa8;
+    margin-top: 3px;
+}
+
+.qr-scan-section .developer-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #f2ede7;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.qr-scan-section .developer-name i {
+    color: #e2b84c;
+    margin-right: 5px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8a9aa8;
+}
+
+.footer-bottom a {
+    color: #e2b84c;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 30px 0 15px 0;
+    }
+    .footer-section .col-md-3 {
+        margin-bottom: 25px;
+    }
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+    .payment-icons {
+        gap: 6px;
+    }
+    .payment-icons .payment-item {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+    }
+    .qr-code-box {
+        width: 70px;
+        height: 70px;
+    }
+    .qr-code-box .qr-icon {
+        font-size: 1.8rem;
+    }
+    .qr-scan-section .scan-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    .footer-section ul li a {
+        font-size: 0.8rem;
+    }
+    .qr-code-box {
+        width: 60px;
+        height: 60px;
+    }
+    .qr-code-box .qr-icon {
+        font-size: 1.5rem;
+    }
+    .qr-code-box .qr-overlay {
+        font-size: 0.45rem;
+    }
+    .qr-scan-section .scan-text {
+        font-size: 0.75rem;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <section>
+        <div class="header-container-full">
+            <div class="header-container">
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">MEN</a></li>
+                        <li><a href="index.html">WOMEN</a></li>
+                        <li><a href="index.html">BOYS</a></li>
+                        <li><a href="index.html">GIRLS</a></li>
+                    </ul>
+                </div>
+                <div class="logo">
+                    <img src="img/ZANDO-NEW-LOGO-2025.png" alt="Zando">
+                </div>
+                <div class="rigister">
+                    <ul>
+                        <li><a href="">REGISTER</a></li>
+                        <li><a href="">LOGIN</a></li>
+                        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                        <li><a href="#"><i class="fa-regular fa-bell"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-face-grin-hearts"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCT DETAIL SECTION ===== -->
+    <section class="product-detail-section">
+        <div class="row">
+            <!-- Product Images -->
+            <div class="col-lg-6">
+                <div class="product-gallery">
+                    <!-- Thumbnails -->
+                    <div class="thumbnail-list">
+                        <div class="thumbnail-item active" data-image="img/pic1.jpg" data-color="white">
+                            <img src="img/pic1.jpg" alt="White">
+                            <span class="color-label">White</span>
+                        </div>
+                        <div class="thumbnail-item" data-image="img/pic2.jpg" data-color="black">
+                            <img src="img/pic2.jpg" alt="Black">
+                            <span class="color-label">Black</span>
+                        </div>
+                        <div class="thumbnail-item" data-image="img/pic3.jpg" data-color="blue">
+                            <img src="img/pic3.jpg" alt="Blue">
+                            <span class="color-label">Blue</span>
+                        </div>
+                        <div class="thumbnail-item" data-image="img/pic5.jpg" data-color="red">
+                            <img src="img/pic5.jpg" alt="Red">
+                            <span class="color-label">Red</span>
+                        </div>
+                        <div class="thumbnail-item" data-image="img/pic6.jpg" data-color="green">
+                            <img src="img/pic6.jpg" alt="Green">
+                            <span class="color-label">Green</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Image -->
+                    <div class="main-image" id="mainImage">
+                        <img src="img/pic1.jpg" alt="Product Main Image" id="mainImageSrc">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Info -->
+            <div class="col-lg-6">
+                <div class="product-info-detail">
+                    <div class="brand"><i class="fas fa-tag"></i> TENJI / New in</div>
+                    <h1>Graphic Off-Shoulder T-shirt</h1>
+                    
+                    <div class="price">
+                        US $11.67
+                        <span class="old-price">US $14.59</span>
+                    </div>
+                    
+                    <div class="colors-available">
+                        <i class="fas fa-palette"></i> 2 Colors available
+                    </div>
+                    
+                    <!-- Color Options -->
+                    <div class="color-options" id="colorOptions">
+                        <div class="color-option active" data-color="white" data-image="img/pic1.jpg">
+                            <img src="img/pic1.jpg" alt="White">
+                            <span class="color-label">White</span>
+                        </div>
+                        <div class="color-option" data-color="black" data-image="img/pic2.jpg">
+                            <img src="img/pic2.jpg" alt="Black">
+                            <span class="color-label">Black</span>
+                        </div>
+                        <div class="color-option" data-color="blue" data-image="img/pic3.jpg">
+                            <img src="img/pic3.jpg" alt="Blue">
+                            <span class="color-label">Blue</span>
+                        </div>
+                        <div class="color-option" data-color="red" data-image="img/pic5.jpg">
+                            <img src="img/pic5.jpg" alt="Red">
+                            <span class="color-label">Red</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Size Options -->
+                    <div>
+                        <label style="font-weight:600; color:#333;">Size</label>
+                        <div class="size-options" id="sizeOptions">
+                            <div class="size-option" data-size="XS">XS</div>
+                            <div class="size-option active" data-size="S">S</div>
+                            <div class="size-option" data-size="M">M</div>
+                            <div class="size-option" data-size="L">L</div>
+                            <div class="size-option" data-size="XL">XL</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quantity -->
+                    <div class="quantity-selector">
+                        <label>Quantity</label>
+                        <div class="quantity-control">
+                            <button id="decreaseQty"><i class="fas fa-minus"></i></button>
+                            <input type="text" id="quantityInput" value="1" readonly>
+                            <button id="increaseQty"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Add to Bag Button -->
+                    <button class="add-to-bag-btn" id="addToBag">
+                        <i class="fas fa-shopping-bag"></i> Add to bag
+                    </button>
+                    
+                    <!-- Product Meta -->
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span><strong>Fast Delivery</strong> - Get it in 2-3 days</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-headset"></i>
+                            <span><strong>Support hotline</strong> - (+855) 085 330 330</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span><strong>Easy Returns</strong> - 30 days return policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="all-product">
+        <h1>⚡️ Oxfit Atelier Collection ⛓️
+        </h1>
+        <div class="container-product">
+            <div class="card-item">
+                <div class="discound">
+                    -10%
+                </div>
+                <div class="image">
+                    <img src="img/pic5.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item">
+                <div class="discound">
+                    -10%
+                </div>
+                <div class="image">
+                    <img src="img/pic6.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item">
+                <div class="discound">
+                    -10%
+                </div>
+                <div class="image">
+                    <img src="img/pic7.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+            <div class="card-item">
+                <div class="discound">
+                    -10%
+                </div>
+                <div class="image">
+                    <img src="img/pic8.jpg" alt="">
+                </div>
+                <div class="description">
+                    <p><del>US $14.59</del>US $11.67</p>
+                    <p>Graphic Off-Shoulder T-shirt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- ===== FOOTER SECTION ===== -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row g-4">
+            
+            <!-- Column 1: ZANDO APP -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-mobile-alt"></i> ZANDO APP</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-star"></i> Membership & Benefits</a></li> <br> 
+                </ul>
+                
+                <h4 class="mt-3"><i class="fas fa-crown"></i> LOYALTY</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-gem"></i> Membership & Benefits</a></li> <br>
+                </ul>
+                
+                <h4 class="mt-3"><i class="fas fa-share-alt"></i> FOLLOW US</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Column 2: Customer Services -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-headset"></i> CUSTOMER SERVICES</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-exchange-alt"></i> Online exchange policy</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> FAQs & guides</a></li>
+                    <li><a href="#"><i class="fas fa-store"></i> Find a store</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Contact Us -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-envelope"></i> CONTACT US</h4>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> customer.care@zandokh.com</p>
+                    <p><i class="fas fa-phone"></i> (+855) 09690255</p>
+                    <p><i class="fab fa-telegram-plane"></i> Telegram</p>
+                </div>
+            </div>
+            
+            <!-- Column 4: We Accept + QR Code -->
+            <div class="col-md-3 col-sm-6">
+                <h4><i class="fas fa-credit-card"></i> WE ACCEPT</h4>
+                <div class="payment-icons">
+                    <span class="payment-item"><i class="fab fa-cc-visa"></i> Visa</span>
+                    <span class="payment-item"><i class="fab fa-cc-mastercard"></i> MasterCard</span>
+                    <span class="payment-item"><i class="fab fa-cc-discover"></i> Discover</span>
+                    <span class="payment-item"><i class="fas fa-university"></i> UnionPay</span>
+                    <span class="payment-item"><i class="fas fa-credit-card"></i> Maestro</span>
+                    <span class="payment-item"><i class="fas fa-university"></i> Bank Transfer</span>
+                    <span class="payment-item"><i class="fas fa-money-bill-wave"></i> Cash on Delivery</span>
+                </div>
+                
+                <!-- ===== QR CODE SECTION ===== -->
+                <div class="qr-section" data-aos="fade-up" data-aos-delay="200">
+                    <div class="qr-title">
+                        <i class="fas fa-qrcode"></i> SCAN TO PAY
+                    </div>
+                    
+                    <div class="qr-code-container">
+                        <!-- QR Code Box 1 - ABA -->
+                        <div class="qr-code-box" data-service="ABA">
+                            <i class="fas fa-qrcode qr-icon"></i>
+                            <div class="qr-overlay">ABA</div>
+                        </div>
+                        
+                        <!-- QR Code Box 2 - WING -->
+                        <div class="qr-code-box" data-service="WING">
+                            <i class="fas fa-qrcode qr-icon"></i>
+                            <div class="qr-overlay">WING</div>
+                        </div>
+                        
+                        <!-- QR Code Box 3 - TrueMoney -->
+                        <div class="qr-code-box" data-service="TrueMoney">
+                            <i class="fas fa-qrcode qr-icon"></i>
+                            <div class="qr-overlay">TrueMoney</div>
+                        </div>
+                    </div>
+                    
+                    <div class="qr-scan-section">
+                        <div class="scan-text">
+                            <span>Scan</span> <span class="dot">.</span> 
+                            <span>Pay</span> <span class="dot">.</span> 
+                            <span>Done</span>
+                        </div>
+                        <div class="scan-sub">
+                            <i class="fas fa-bolt"></i> Quick & Secure Payment
+                        </div>
+                        <div class="developer-name">
+                            <i class="fas fa-code"></i> CHORN VISAL
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© 2015 - 2026 Zando. All rights reserved. | Developed by <a href="#">CHORN VISAL</a></p>
+        </div>
+    </div>
+</footer>
+    <!-- ========================================== -->
+    <!-- JavaScript -->
+    <!-- ========================================== -->
+    
+    <!-- 1. Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 2. AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- 3. Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+            easing: 'ease-out-cubic'
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // ===== 1. CHANGE MAIN IMAGE ON CLICK =====
+            const mainImage = document.getElementById('mainImageSrc');
+            const thumbnails = document.querySelectorAll('.thumbnail-item');
+            const colorOptions = document.querySelectorAll('.color-option');
+            
+            // Function to change image
+            function changeImage(imageSrc, element) {
+                // Change main image with smooth transition
+                mainImage.style.opacity = '0';
+                setTimeout(() => {
+                    mainImage.src = imageSrc;
+                    mainImage.style.opacity = '1';
+                }, 200);
+                
+                // Remove active from all thumbnails
+                thumbnails.forEach(t => t.classList.remove('active'));
+                colorOptions.forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked element
+                if (element) {
+                    element.classList.add('active');
+                }
+                
+                // Update color options active state
+                colorOptions.forEach(c => {
+                    if (c.dataset.image === imageSrc) {
+                        c.classList.add('active');
+                    }
+                });
+                
+                // Update thumbnails active state
+                thumbnails.forEach(t => {
+                    if (t.dataset.image === imageSrc) {
+                        t.classList.add('active');
+                    }
+                });
+            }
+            
+            // Thumbnail click
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const imageSrc = this.dataset.image;
+                    changeImage(imageSrc, this);
+                });
+            });
+            
+            // Color option click
+            colorOptions.forEach(color => {
+                color.addEventListener('click', function() {
+                    const imageSrc = this.dataset.image;
+                    changeImage(imageSrc, this);
+                });
+            });
+            
+            // ===== 2. SIZE SELECTION =====
+            const sizeOptions = document.querySelectorAll('.size-option');
+            sizeOptions.forEach(size => {
+                size.addEventListener('click', function() {
+                    sizeOptions.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // ===== 3. QUANTITY CONTROL =====
+            const quantityInput = document.getElementById('quantityInput');
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            
+            decreaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value < 10) {
+                    quantityInput.value = value + 1;
+                }
+            });
+            
+            // ===== 4. ADD TO BAG =====
+            const addToBagBtn = document.getElementById('addToBag');
+            addToBagBtn.addEventListener('click', function() {
+                const selectedSize = document.querySelector('.size-option.active')?.dataset.size || 'S';
+                const quantity = quantityInput.value;
+                const productName = document.querySelector('.product-info-detail h1').textContent;
+                const price = document.querySelector('.price').textContent.trim();
+                
+                // Animation
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+                this.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-check"></i> Added to Bag!';
+                    this.style.background = '#28a745';
+                    
+                    // Show notification
+                    showNotification(`✅ Added "${productName}" (Size: ${selectedSize}, Qty: ${quantity}) - ${price}`);
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-shopping-bag"></i> Add to bag';
+                        this.style.background = '#0b1a1f';
+                    }, 2000);
+                }, 800);
+            });
+            
+            // ===== 5. NOTIFICATION SYSTEM =====
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification-toast';
+                notification.innerHTML = `
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <i class="fas fa-check-circle" style="color:#28a745; font-size:1.5rem;"></i>
+                        <span>${message}</span>
+                    </div>
+                `;
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    background: white;
+                    padding: 18px 25px;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 50px rgba(0,0,0,0.15);
+                    z-index: 9999;
+                    border-left: 5px solid #28a745;
+                    animation: slideInRight 0.4s ease;
+                    font-family: Arial, sans-serif;
+                    min-width: 280px;
+                    max-width: 450px;
+                    font-size: 0.95rem;
+                    color: #333;
+                `;
+                document.body.appendChild(notification);
+                
+                // Add animation styles if not exists
+                if (!document.getElementById('notificationStyles')) {
+                    const style = document.createElement('style');
+                    style.id = 'notificationStyles';
+                    style.textContent = `
+                        @keyframes slideInRight {
+                            from { transform: translateX(100%); opacity: 0; }
+                            to { transform: translateX(0); opacity: 1; }
+                        }
+                        @keyframes slideOutRight {
+                            from { transform: translateX(0); opacity: 1; }
+                            to { transform: translateX(100%); opacity: 0; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOutRight 0.4s ease';
+                    setTimeout(() => notification.remove(), 400);
+                }, 4000);
+            }
+            
+            // ===== 6. QR CODE CLICK INTERACTION =====
+            document.querySelectorAll('.qr-code-box').forEach(qr => {
+                qr.addEventListener('click', function() {
+                    const service = this.querySelector('.qr-overlay')?.textContent || 'Payment';
+                    showNotification(`📱 Scanning ${service} QR Code...`);
+                    
+                    // Animation effect
+                    this.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 200);
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 400);
+                });
+            });
+            
+            // ===== 7. SEARCH FUNCTIONALITY =====
+            const searchIcon = document.querySelector('.fa-magnifying-glass');
+            if (searchIcon) {
+                searchIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const searchBox = document.createElement('input');
+                    searchBox.type = 'text';
+                    searchBox.placeholder = 'ស្វែងរកនៅ Zando...';
+                    searchBox.className = 'search-input';
+                    searchBox.style.cssText = `
+                        position: fixed;
+                        top: 80px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 400px;
+                        padding: 15px 20px;
+                        border: 2px solid #e2b84c;
+                        border-radius: 30px;
+                        font-size: 16px;
+                        z-index: 1000;
+                        background: white;
+                        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+                        animation: slideDown 0.3s ease;
+                    `;
+                    document.body.appendChild(searchBox);
+                    searchBox.focus();
+                    
+                    searchBox.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape') this.remove();
+                    });
+                    document.addEventListener('click', function closeSearch(e) {
+                        if (e.target !== searchBox && e.target !== searchIcon) {
+                            searchBox.remove();
+                            document.removeEventListener('click', closeSearch);
+                        }
+                    });
+                });
+            }
+
+            // ===== 8. KEYBOARD SHORTCUTS =====
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 's' || e.key === 'S') {
+                    const searchIcon = document.querySelector('.fa-magnifying-glass');
+                    if (searchIcon) searchIcon.click();
+                }
+                if (e.key === 'c' || e.key === 'C') {
+                    const cartIcon = document.querySelector('.fa-bag-shopping');
+                    if (cartIcon) cartIcon.click();
+                }
+            });
+
+            console.log('🛍️ Zando Product Detail loaded successfully!');
+            console.log('🎯 Click on thumbnails or colors to change product image');
+            console.log('📱 Click on QR codes to scan payment');
+            console.log('🎯 Press "S" for search, "C" for cart');
+        });
+    </script>
+</body>
+
+</html>
